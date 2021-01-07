@@ -18,43 +18,46 @@ class SignIn extends Component {
 
     handleSubmit = () => {
         Event.preventDefault()
-        this.setState({email: '', password: ''})
+        this.setState({ email: '', password: '' })
     }
 
     handleChange = event => {
         const { value, name } = event.target
 
-        this.setState({ [name]: value})
+        this.setState({ [name]: value })
     }
 
     render() {
-        return(
+        return (
             <div className='sign-in'>
                 <h2>I already have an account</h2>
                 <span>Sign in with your email and password</span>
 
                 <form onSubmit={this.handleSubmit}>
-                    <FormInput 
+                    <FormInput
                         name='email'
-                        type='email' 
+                        type='email'
                         label='email'
-                        value={this.state.email} 
+                        value={this.state.email}
                         handleChange={this.handleChange}
-                        required 
+                        required
                     />
-                    <FormInput 
-                        name='password' 
+                    <FormInput
+                        name='password'
                         type='password'
-                        label='password' 
+                        label='password'
                         value={this.state.password}
                         handleChange={this.handleChange}
                         required
                     />
-                    <CustomButton type='submit'> Sign In </CustomButton>
-                    <CustomButton onClick={signInWithGoogle}> 
-                        {' '}
-                        Sign In With Google{' '}
-                    </CustomButton>
+                    <div className='buttons'>
+
+                        <CustomButton type='submit'> Sign In </CustomButton>
+                        <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
+                            {' '}
+                            Sign In With Google{' '}
+                        </CustomButton>
+                    </div>
                 </form>
             </div>
         )
