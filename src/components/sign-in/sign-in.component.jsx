@@ -1,24 +1,26 @@
 import { Component } from 'react';
 import './sign-in.styles.scss'
-import { Component } from "react";
+import FormInput from "../../components/form-input/form-input.component";
 
 class SignIn extends Component {
     constructor() {
         super()
 
         this.state = {
-            email: ''
+            email: '',
             password: ''
         }
     }
 
     handleSubmit = () => {
-        event.preventDefault()
+        Event.preventDefault()
         this.setState({email: '', password: ''})
     }
 
     handleChange = event => {
-        const { value, name } = event
+        const { value, name } = event.target
+
+        this.setState({ [name]: value})
     }
 
     render() {
@@ -28,23 +30,24 @@ class SignIn extends Component {
                 <span>Sign in with your email and password</span>
 
                 <form onSubmit={this.handleSubmit}>
-                    <input 
+                    <FormInput 
                         name='email'
                         type='email' 
+                        label='email'
                         value={this.state.email} 
-                        onChange={this.handleChange}
+                        handleChange={this.handleChange}
                         required 
                     />
-                    <label>Email</label>
-                    <input 
+                    <FormInput 
                         name='password' 
-                        type='password' 
+                        type='password'
+                        label='password' 
                         value={this.state.password}
-                        onChange={this.handleChange}
+                        handleChange={this.handleChange}
+                        required
                     />
-                    <label>Password</label>
 
-                    <input type='submit' value='Submit Form'/>
+                    <FormInput type='submit' value='Submit Form'/>
                 </form>
             </div>
         )
