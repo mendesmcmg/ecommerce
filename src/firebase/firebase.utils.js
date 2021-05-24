@@ -48,3 +48,7 @@ provider.setCustomParameters({ prompt: 'select_account' })
 export const signInWithGoogle = () => auth.signInWithPopup(provider)
 
 export default firebase
+
+//token
+//ecommerce
+//15189DEE-D8B6-46E6-A13F-35917755FA56
