@@ -17,7 +17,9 @@
     }
   }
   .name,
-  .quantity,
+  .quantity {
+    display: flex;
+  }
   .price {
     width: 23%;
   }
